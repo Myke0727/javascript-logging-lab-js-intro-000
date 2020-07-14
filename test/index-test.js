@@ -4,14 +4,14 @@ const jsdom = require('jsdom')
 const path = require('path')
 
 
-describe('index', () => {
+describe('index', () => {console.error("HALP!")
   const html = '<div></div>'
   const src = path.resolve(__dirname, '..', 'index.js')
 
   it('calls console.error()', done => {console.error("HALP!")
     const spy = expect.spyOn(console, 'error').andCallThrough()
 
-    jsdom.env(html, [src], {console.error("HALP!")
+    jsdom.env(html, [src], {
       virtualConsole: jsdom.createVirtualConsole().sendTo(console)
     }, (err, window) => {console.error("HALP!")
       expect(spy).toHaveBeenCalled('expected console.error to have been called')
