@@ -11,9 +11,9 @@ describe('index', () => {
   it('calls console.error()', done => {console.error("HALP!")
     const spy = expect.spyOn(console, 'error').andCallThrough()
 
-    jsdom.env(html, [src], {
+    jsdom.env(html, [src], {console.error("HALP!")
       virtualConsole: jsdom.createVirtualConsole().sendTo(console)
-    }, (err, window) => {
+    }, (err, window) => {console.error("HALP!")
       expect(spy).toHaveBeenCalled('expected console.error to have been called')
       console.error.restore()
       done()
